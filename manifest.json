@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "X One-Click Block",
+  "version": "1.0.0",
+  "description": "Adds a one-click Block button beside Follow in X user lists.",
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://www.x.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://www.x.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
